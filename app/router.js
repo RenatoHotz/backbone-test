@@ -3,15 +3,20 @@ define([
   "app",
 
   // Modules.
-  "modules/example"
+  "modules/example",
+  "modules/adtest"
 ],
 
-function(app, Example) {
+function(app, Example, Adtest) {
 
   // Defining the application router, you can attach sub routers here.
   var Router = Backbone.Router.extend({
     routes: {
-      "": "index"
+      ""			: "index",
+      "test"		: "test",
+      "programm"	: "program",
+	  "programme"	: "program",
+	  "adtest"		: "adtest"
     },
 
     index: function() {
@@ -25,9 +30,36 @@ function(app, Example) {
       
       // Render the layout into the DOM.
       layout.render();
-    }
+    },
+    
+    test: function() {
+    	alert('test-route');
+    },
+    
+    program: function() {
+		 alert('show program');
+	},
+	
+	adtest: function() {
+		var adtest = new Adtest.Model();
+		var layout = new Backbone.Layout({
+			el: 	"#main"
+		});
+		
+		layout.setView(
+			new Adtest.Views.Program({ 
+				model: adtest 
+			})
+		);
+		
+		layout.render();
+		
+		adtest.setTitle('A scandal in Bohemia');
+		//console.log(adtest);
+	}
+	
   });
-
+  
   return Router;
 
 });
