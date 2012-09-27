@@ -41,20 +41,20 @@ function(app, Example, Adtest) {
 	},
 	
 	adtest: function() {
-		var adtest = new Adtest.Model();
+		var adtestModel = new Adtest.Model();
 		var layout = new Backbone.Layout({
 			el: 	"#main"
 		});
 		
 		layout.setView(
 			new Adtest.Views.Program({ 
-				model: adtest 
+				model: adtestModel 
 			})
 		);
 		
 		layout.render();
 		
-		adtest.setTitle('A scandal in Bohemia');
+		adtestModel.setTitle('A scandal in Bohemia');
 		//console.log(adtest);
 	}
 	

@@ -13,7 +13,8 @@ require.config({
     // Libraries.
     jquery: "../assets/js/libs/jquery",
     lodash: "../assets/js/libs/lodash",
-    backbone: "../assets/js/libs/backbone"
+    backbone: "../assets/js/libs/backbone",
+    adtech: "http://aka-cdn.adtech.de/rm/lib/writeCapture/writeCapture-1.0.5-nolib-min"
   },
 
   shim: {
@@ -23,6 +24,8 @@ require.config({
       exports: "Backbone"
     },
 
+    adtech: {},
+    
     // Backbone.LayoutManager depends on Backbone.
     "plugins/backbone.layoutmanager": ["backbone"]
   }
